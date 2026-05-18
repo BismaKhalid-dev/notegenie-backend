@@ -26,10 +26,13 @@ app.use(
       'http://localhost:5173',
       'https://note-genie-iota.vercel.app'
     ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   })
 );
+
+app.options('*', cors());
 
 app.use(express.json({ limit: '20mb' }));
 
