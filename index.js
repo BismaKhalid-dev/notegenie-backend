@@ -12,27 +12,13 @@ dotenv.config();
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: [process.env.FRONTEND_URL, 'https://note-genie-iota.vercel.app/'],
-    
-//     credentials: true,
-//   })
-// );
-
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173',
-      'https://note-genie-iota.vercel.app'
-    ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: [process.env.FRONTEND_URL, 'https://note-genie-iota.vercel.app/'],
+    
     credentials: true,
   })
 );
-
-app.options('*', cors());
 
 app.use(express.json({ limit: '20mb' }));
 
